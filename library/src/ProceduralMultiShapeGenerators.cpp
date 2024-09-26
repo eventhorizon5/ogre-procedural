@@ -80,7 +80,7 @@ MultiShape TextShape::realizeShapes()
 
 				int nContours   = face->glyph->outline.n_contours;
 				int startPos    = 0;
-				char* tags     = face->glyph->outline.tags;
+				unsigned char* tags     = face->glyph->outline.tags;
 				FT_Vector* vec = face->glyph->outline.points;
 
 				for (int k = 0; k < nContours; k++)

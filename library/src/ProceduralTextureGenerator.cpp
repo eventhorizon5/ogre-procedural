@@ -212,7 +212,7 @@ TextureBufferPtr Cloud::process()
 	{
 		for (size_t x = 0; x < mBuffer->getWidth(); x++)
 		{
-			Ogre::Real noiseVal = std::max(0.0f, std::min(1.0f, noise.function2D(x + r, y + r) * 0.5f + 0.5f));
+			Ogre::Real noiseVal = std::max(0.0, std::min(1.0, noise.function2D(x + r, y + r) * 0.5 + 0.5));
 			mBuffer->setRed(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.r * 255.0f + filterLevel * mColour.r * 255.0f * noiseVal, 255.0f));
 			mBuffer->setGreen(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.g * 255.0f + filterLevel * mColour.g * 255.0f * noiseVal, 255.0f));
 			mBuffer->setBlue(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.b * 255.0f + filterLevel * mColour.b * 255.0f * noiseVal, 255.0f));
@@ -365,7 +365,7 @@ TextureBufferPtr Labyrinth::process()
 	{
 		for (size_t x = 0; x < mBuffer->getWidth(); x++)
 		{
-			Ogre::Real noiseVal = std::min(1.0f, std::abs(noise.function2D(x + r, y + r)));
+			Ogre::Real noiseVal = std::min(1.0, std::abs(noise.function2D(x + r, y + r)));
 			mBuffer->setRed(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.r * 255.0f + filterLevel * mColour.r * 255.0f * noiseVal, 255.0f));
 			mBuffer->setGreen(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.g * 255.0f + filterLevel * mColour.g * 255.0f * noiseVal, 255.0f));
 			mBuffer->setBlue(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.b * 255.0f + filterLevel * mColour.b * 255.0f * noiseVal, 255.0f));
@@ -411,7 +411,7 @@ TextureBuffer* Marble::process()
 	{
 		for (size_t x = 0; x < mBuffer->getWidth(); x++)
 		{
-			Ogre::Real noiseVal = std::min(1.0f, Ogre::Math::Abs(Ogre::Math::Sin(x * xFact + y * yFact + noise.function2D(x + r, y + r)) * Ogre::Math::PI));
+			Ogre::Real noiseVal = std::min(1.0, Ogre::Math::Abs(Ogre::Math::Sin(x * xFact + y * yFact + noise.function2D(x + r, y + r)) * Ogre::Math::PI));
 			mBuffer->setRed(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.r * 255.0f + filterLevel * mColour.r * 255.0f * noiseVal, 255.0f));
 			mBuffer->setGreen(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.g * 255.0f + filterLevel * mColour.g * 255.0f * noiseVal, 255.0f));
 			mBuffer->setBlue(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.b * 255.0f + filterLevel * mColour.b * 255.0f * noiseVal, 255.0f));
@@ -593,7 +593,7 @@ TextureBufferPtr Wood::process()
 		{
 			Ogre::Real xv = ((Ogre::Real)(x - w2)) / (Ogre::Real)mBuffer->getWidth();
 			Ogre::Real yv = ((Ogre::Real)(y - h2)) / (Ogre::Real)mBuffer->getHeight();
-			Ogre::Real noiseVal = std::min(1.0f, Ogre::Math::Abs(Ogre::Math::Sin((sqrt(xv * xv + yv * yv) + noise.function2D(x + r, y + r)) * Ogre::Math::PI * 2 * mRings)));
+			Ogre::Real noiseVal = std::min(1.0, Ogre::Math::Abs(Ogre::Math::Sin((sqrt(xv * xv + yv * yv) + noise.function2D(x + r, y + r)) * Ogre::Math::PI * 2 * mRings)));
 			mBuffer->setRed(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.r * 255.0f + filterLevel * mColour.r * 255.0f * noiseVal, 255.0f));
 			mBuffer->setGreen(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.g * 255.0f + filterLevel * mColour.g * 255.0f * noiseVal, 255.0f));
 			mBuffer->setBlue(x, y, (Ogre::uchar)std::min<Ogre::Real>(preserveLevel * mColour.b * 255.0f + filterLevel * mColour.b * 255.0f * noiseVal, 255.0f));
