@@ -26,15 +26,4 @@ if (WIN32)
   )
 endif ()
 
-if (APPLE)
-  set(INST_FILES ${INST_FILES}
-    Packages/FindIOKit.cmake
-  )
-  set(STATIC_INST_FILES ${STATIC_INST_FILES}
-    Packages/FindCarbon.cmake
-    Packages/FindCocoa.cmake
-    Packages/FindiPhoneSDK.cmake
-  )
-endif ()
-
 install(FILES ${INST_FILES} DESTINATION ${OgreProcedural_CMAKE_DIR})
