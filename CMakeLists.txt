@@ -118,7 +118,7 @@ configure_file("${OgreProcedural_TEMPLATES_DIR}/version.txt.in" "${OgreProcedura
 
 include_directories("${OgreProcedural_SOURCE_DIR}/library/include" "${OgreProcedural_BINARY_DIR}/include")
 
-find_package(Freetype)
+#find_package(Freetype)
 
 add_subdirectory(library)
 
